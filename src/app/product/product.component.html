@@ -1,39 +1,57 @@
-<form [formGroup]="productFormsGroup">
-  <div class="row">
-    <label>Id</label>
-    <input type="number" id="id" formControlName="id">
-    <label>Nome</label>
-    <input type="text" id="name" formControlName="name">
-  </div>
-  <div class="row">
-    <label>Descrição</label>
-    <textarea formControlName="description"></textarea>
-  </div>
-  <div class="row">
-    <label>Preço</label>
-    <input type="text" id="price" formControlName="price">
-    <label>Quantidade</label>
-    <input type="number" id="quantity" formControlName="quantity">
-  </div>
-  <button (click)="save()">Salvar</button>
-</form>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Preço</th>
-      <th scope="col">Quantidade</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of products">
-      <th scope="row">{{p.id}}</th>
-      <td>{{p.name}}</td>
-      <td>{{p.description}}</td>
-      <td>{{p.price}}</td>
-      <td>{{p.quantity}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="text-bg-dark p-5">
+  <form [formGroup]="productFormsGroup">
+    <div class="row mb-3">
+      <div class="input-group">
+        <div class="form-floating">
+          <input class="form-control" type="number" id="id" formControlName="id">
+          <label for="id">Id</label>
+        </div>
+        <div class="form-floating">
+          <input class="form-control" type="text" id="name" formControlName="name">
+          <label for="name">Nome</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Deixe uma descrição do item" id="description"
+                  formControlName="description"></textarea>
+        <label for="description">Descrição</label>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="input-group">
+        <span class="input-group-text">R$</span>
+        <div class="form-floating">
+          <input class="form-control" type="text" id="price" formControlName="price">
+          <label for="price">Preço</label>
+        </div>
+        <div class="form-floating">
+          <input class="form-control" type="number" id="quantity" formControlName="quantity">
+          <label for="price">Quantidade</label>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-primary mb-3" (click)="save()">Salvar</button>
+  </form>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.name}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

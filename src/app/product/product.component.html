@@ -1,1 +1,39 @@
-<p>product works!</p>
+<form [formGroup]="productFormsGroup">
+  <div class="row">
+    <label>Id</label>
+    <input type="number" id="id" formControlName="id">
+    <label>Nome</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div class="row">
+    <label>Descrição</label>
+    <textarea formControlName="description"></textarea>
+  </div>
+  <div class="row">
+    <label>Preço</label>
+    <input type="text" id="price" formControlName="price">
+    <label>Quantidade</label>
+    <input type="number" id="quantity" formControlName="quantity">
+  </div>
+  <button (click)="save()">Salvar</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Quantidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <th scope="row">{{p.id}}</th>
+      <td>{{p.name}}</td>
+      <td>{{p.description}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.quantity}}</td>
+    </tr>
+  </tbody>
+</table>

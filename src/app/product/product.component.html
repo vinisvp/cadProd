@@ -1,4 +1,5 @@
-<div class="text-bg-dark p-5">
+<div class="bg-dark p-5">
+  <h1 class="mb-4" style="color: white;">Cadastro de Produto</h1>
   <form [formGroup]="productFormsGroup">
     <div class="row mb-3">
       <div class="input-group">
@@ -13,10 +14,12 @@
       </div>
     </div>
     <div class="row mb-3">
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Deixe uma descrição do item" id="description"
-                  formControlName="description"></textarea>
-        <label for="description">Descrição</label>
+      <div class="input-group">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Deixe uma descrição do item" id="description"
+                    formControlName="description"></textarea>
+          <label for="description">Descrição</label>
+        </div>
       </div>
     </div>
     <div class="row mb-3">
@@ -34,6 +37,7 @@
     </div>
     <button type="button" class="btn btn-outline-primary mb-3" (click)="save()">Salvar</button>
   </form>
+  <h1 class="mb-4" style="color: white;">Lista de Produto</h1>
   <table class="table table-striped table-dark">
     <thead>
       <tr>
@@ -49,7 +53,7 @@
         <th scope="row">{{p.id}}</th>
         <td>{{p.name}}</td>
         <td>{{p.description}}</td>
-        <td>{{p.price}}</td>
+        <td>R$ {{p.price}}</td>
         <td>{{p.quantity}}</td>
       </tr>
     </tbody>

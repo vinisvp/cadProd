@@ -1,0 +1,11 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Diamante",
+      "description": "Inquebrável",
+      "price": 100.50,
+      "quantity": 12
+    }
+  ]
+}

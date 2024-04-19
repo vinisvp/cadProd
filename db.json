@@ -4,8 +4,22 @@
       "id": 1,
       "name": "Diamante",
       "description": "Inquebrável",
-      "price": 100.50,
+      "price": 2000,
       "quantity": 12
+    },
+    {
+      "id": 2,
+      "name": "Ferro",
+      "description": "Ferroso",
+      "price": 300,
+      "quantity": 30
+    },
+    {
+      "id": 3,
+      "name": "Esmeralda",
+      "description": "Valioso",
+      "price": 500.9,
+      "quantity": 25
     }
   ]
 }

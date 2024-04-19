@@ -4,10 +4,6 @@
     <div class="row mb-3">
       <div class="input-group">
         <div class="form-floating">
-          <input class="form-control" placeholder="a" type="number" id="id" formControlName="id">
-          <label for="id">Id</label>
-        </div>
-        <div class="form-floating">
           <input class="form-control" placeholder="a" type="text" id="name" formControlName="name">
           <label for="name">Nome</label>
         </div>
@@ -26,7 +22,7 @@
       <div class="input-group">
         <span class="input-group-text">R$</span>
         <div class="form-floating">
-          <input class="form-control" placeholder="a" type="text" id="price" formControlName="price">
+          <input class="form-control" placeholder="a" type="number" id="price" formControlName="price">
           <label for="price">Preço</label>
         </div>
         <div class="form-floating">
@@ -46,6 +42,7 @@
         <th scope="col">Descrição</th>
         <th scope="col">Preço</th>
         <th scope="col">Quantidade</th>
+        <th scope="col" class="text-center">Opções</th>
       </tr>
     </thead>
     <tbody>
@@ -55,6 +52,10 @@
         <td>{{p.description}}</td>
         <td>R$ {{p.price}}</td>
         <td>{{p.quantity}}</td>
+        <td class="text-center">
+          <button type="button" (click)="update(p)" class="btn btn-primary me-4">Editar</button>
+          <button type="button" (click)="delete(p)" class="btn btn-danger">Remover</button>
+        </td>
       </tr>
     </tbody>
   </table>

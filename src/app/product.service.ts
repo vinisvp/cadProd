@@ -15,4 +15,16 @@ export class ProductService {
   getProduct(): Observable<Product[]>{
     return this.http.get<Product[]>(this.url);
   }
+
+  postProduct(product: Product): Observable<Product>{
+    return this.http.post<Product>(this.url, product);
+  }
+
+  deleteProduct(product: Product): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${product.id}`)
+  }
+
+  putProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.url}/${product.id}`, product);
+  }
 }

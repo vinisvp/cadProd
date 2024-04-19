@@ -11,6 +11,7 @@ import { ProductService } from '../product.service';
 export class ProductComponent implements OnInit{
   products: Product[] = [];
   productFormsGroup: FormGroup;
+  isEditing: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private service: ProductService
@@ -23,13 +24,49 @@ export class ProductComponent implements OnInit{
       quantity:['']
     });
   }
-  ngOnInit(): void {
+
+  load(): void {
     this.service.getProduct().subscribe({
       next: data => this.products = data
     })
   }
 
-  save(){
-    this.products.push(this.productFormsGroup.value);
+  ngOnInit(): void {
+    this.load();
+  }
+
+  save() {
+    if (!this.isEditing)
+    {
+      this.service.postProduct(this.productFormsGroup.value).subscribe({
+        next: () => {
+          this.load();
+          this.productFormsGroup.reset();
+        }
+      });
+    }
+    else
+    {
+      this.service.putProduct(this.productFormsGroup.value).subscribe({
+        next: () => {
+          this.load();
+          this.isEditing = false;
+          this.productFormsGroup.reset();
+        }
+      })
+    }
+  }
+
+  delete(product: Product) {
+    this.service.deleteProduct(product).subscribe({
+      next: () => {
+        this.load();
+      }
+    })
+  }
+
+  update(product: Product){
+    this.isEditing = true;
+    this.productFormsGroup.setValue(product);
   }
 }
